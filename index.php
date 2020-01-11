@@ -8,6 +8,15 @@
  * GreenRiverDev
  */
 
+//array for flavor display and selection
+$cupcake = array(
+    'grasshopper' => 'The Grasshopper',
+    'maple' => 'Whiskey Maple Bacon',
+    'carrot' => 'Carrot Walnut',
+    'velvet' => 'Red Velvet',
+    'lemon' => 'Lemon Drop',
+    'tiramisu' => 'Tiramisu',
+);
 ?>
 
 <html lang="en-US">
@@ -32,8 +41,17 @@
             <input type="text" name = "name"/>
         </label><br>
 
-
-    <!--Cupcake options-->
+        <?php
+            //print checkboxes for the flavor options
+            $count = 0;
+            echo '<p>Cupcake flavors:</p><ul style="list-style:none;">';
+            foreach ($cupcake as $flavor) {
+                echo '<li><input type="checkbox" name="flavor[]" id="'
+                    . $count . '" value="' . $flavor . '"><label for="' . $count . '">' . $flavor . '</label></li>';
+                $count++;
+            }
+            echo '</ul>';
+        ?>
 
     <!--Submit option and end of form-->
     <input type="submit" value="Order"/>
