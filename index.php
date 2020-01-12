@@ -17,6 +17,9 @@ $cupcake = array(
     'lemon' => 'Lemon Drop',
     'tiramisu' => 'Tiramisu',
 );
+
+$errors = []; // Initialize an error array.
+
 ?>
 
 <html lang="en-US">
@@ -25,7 +28,7 @@ $cupcake = array(
         <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Cupcakes</title>
     </head>
     <body>
 
@@ -38,7 +41,8 @@ $cupcake = array(
     <!--Enter name-->
     <p>Your name:</p>
         <label>
-            <input type="text" name = "name"/>
+            <input type="text" name = "name" value = "<?php
+            if (isset($_POST['name'])) echo $_POST['name']; ?>"/>
         </label><br>
 
         <?php
@@ -47,7 +51,9 @@ $cupcake = array(
             echo '<p>Cupcake flavors:</p><ul style="list-style:none;">';
             foreach ($cupcake as $flavor) {
                 echo '<li><input type="checkbox" name="flavor[]" id="'
-                    . $count . '" value="' . $flavor . '"><label for="' . $count . '">' . $flavor . '</label></li>';
+                    . $count . '" value="' . $flavor;
+                if(($_POST['flavor']))echo 'checked';
+                echo '"><label for="' . $count . '">' . $flavor . '</label></li>';
                 $count++;
             }
             echo '</ul>';
