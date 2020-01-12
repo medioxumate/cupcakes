@@ -36,7 +36,7 @@ $errors = []; // Initialize an error array.
     <h1>Cupcake Fundraiser</h1>
 
     <!--Form begins:-->
-    <form action method = "post">
+    <form action = "http://bkiehn.greenriverdev.com/it328/cupcakes/order.php" method = "post">
 
     <!--Enter name-->
     <p>Your name:</p>
