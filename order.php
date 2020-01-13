@@ -23,17 +23,28 @@
 $order = $_POST['flavor'];
 $name = $_POST['name'];
 
+//cupcake count
+$count = 0;
+
 //thank the user
 echo 'Thank you, '.$name.', for your order!';
-
-//print ordered cupcakes
-echo '<br><p>Order Summary:</p>
-      <ul>';
+?>
+<!--print ordered cupcakes-->
+<br><p>Order Summary:</p>
+      <ul>
+<?php
 foreach ($order as $item) {
     echo '<li>' . $item . '</li>';
+    $count++;
 }
-echo '</ul>';
 ?>
+      </ul>
+<br><p>Order total:
+<?php
+    echo'$'.number_format((float)$count*3.50, 2, '.', '');
+    echo print_r($cupcake);
+?>
+    </p>
     <p><small>This site is for educational purposes only. <em>The cake is a lie.</em></small></p>
     </body>
 </html>
