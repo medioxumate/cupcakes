@@ -5,9 +5,11 @@
  * @date 1/11/2020
  * @version 1.0
  * order.php
+ * https://github.com/medioxumate/cupcakes.git
  * GreenRiverDev
  */
 
+require('functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +44,6 @@ foreach ($order as $item) {
 <br><p>Order total:
 <?php
     echo'$'.number_format((float)$count*3.50, 2, '.', '');
-    echo print_r($cupcake);
 ?>
     </p>
     <p><small>This site is for educational purposes only. <em>The cake is a lie.</em></small></p>

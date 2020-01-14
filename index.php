@@ -5,20 +5,13 @@
  * @date 1/10/2020
  * @version 2.0
  * index.php
+ * https://github.com/medioxumate/cupcakes.git
  * GreenRiverDev
  */
 
-//array for flavor display and selection
-$cupcake = array(
-    'grasshopper' => 'The Grasshopper',
-    'maple' => 'Whiskey Maple Bacon',
-    'carrot' => 'Carrot Walnut',
-    'velvet' => 'Red Velvet',
-    'lemon' => 'Lemon Drop',
-    'tiramisu' => 'Tiramisu',
-);
+require('functions.php');
 
-$errors = []; // Initialize an error array.
+$errors = FALSE; // Initialize an errors.
 
 ?>
 
@@ -44,24 +37,16 @@ $errors = []; // Initialize an error array.
             <input type="text" name = "name" value = "<?php
             if (isset($_POST['name'])) echo $_POST['name']; ?>"/>
         </label><br>
-
-        <?php
-            //print checkboxes for the flavor options
-            $count = 0;
-            echo '<p>Cupcake flavors:</p><ul style="list-style:none;">';
-            foreach ($cupcake as $flavor) {
-                echo '<li><input type="checkbox" name="flavor[]" id="'
-                    . $count . '" value="' . $flavor;
-                if(($_POST['flavor']))echo 'checked';
-                echo '"><label for="' . $count . '">' . $flavor . '</label></li>';
-                $count++;
-            }
-            echo '</ul>';
-        ?>
+            <p>Cupcake flavors:</p><ul style="list-style:none;">
+            <?php
+                options($cupcakes);
+            ?>
+        </ul>
 
     <!--Submit option and end of form-->
     <input type="submit" value="Order"/>
-    <input type="reset" value="Reset"/></form>
+    <input type="reset" value="Reset"/>
+    </form>
 
     <!--end of html-->
     </body>
